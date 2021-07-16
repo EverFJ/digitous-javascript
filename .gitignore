@@ -1,0 +1,5 @@
+node_modules/*
+prompt.js
+package.json
+package-lock.json
+exo_herve/*
