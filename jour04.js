@@ -105,7 +105,7 @@ function addUp(num) {
 
 console.log(addUp(12) + "\n\n");
 
-// 06 Time
+// 06 Time NOT FINISHED !!!
 
 function format(num) {
 

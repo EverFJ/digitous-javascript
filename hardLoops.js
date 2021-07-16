@@ -32,7 +32,7 @@ for (i = 0; i < 50; i++) {
     numbers.push(getRandomNumber(50, 201));
 }
 console.log(numbers);
-largestNumber = Number.NEGATIVE_INFINITY;
+let largestNumber = Number.NEGATIVE_INFINITY;
 
 for (i = 0; i < numbers.length; i++) {
     if (numbers[i] > largestNumber) {
@@ -42,7 +42,7 @@ for (i = 0; i < numbers.length; i++) {
 console.log(`C'est ${largestNumber} le plus grand nombre du tableau \n`);
 
 
-// Unique
+// Unique NOT FINISHED !!!
 
 numbers = [];
 
@@ -58,7 +58,7 @@ for (i = 0; i < numbers.length; i++) {
 }
 console.log("\n");
 
-// NESTED LOOP
+// NESTED LOOP NOT FINISHED !!!
 
 console.log("Nested loop : ");
 
