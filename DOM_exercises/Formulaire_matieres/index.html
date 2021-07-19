@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <title>Formulaire matières</title>
 </head>
@@ -13,15 +13,18 @@
 <body>
     <h5 class="card-title m-2">Quelle matières aimez vous ?</h5>
     <form class="form-check m-2" action="">
-        <input class="form-check-input" type="checkbox" name="maths" id="maths" value="math">
+        <input class="form-check-input" type="checkbox" name="maths" id="maths" value="yes">
         <label class="form-check-label" for="maths">Mathématiques</label><br />
-        <input class="form-check-input" type="checkbox" name="anglais" id="anglais" value="anglais">
+        <input class="form-check-input" type="checkbox" name="anglais" id="anglais" value="yes">
         <label class="form-check-label" for="anglais">Anglais</label><br />
-        <input class="form-check-input" type="checkbox" name="physique" id="physique" value="physique">
+        <input class="form-check-input" type="checkbox" name="physique" id="physique" value="yes">
         <label class="form-check-label" for="physique">Physique</label><br />
-        <input class="form-check-input" type="checkbox" name="français" id="français" value="français">
+        <input class="form-check-input" type="checkbox" name="français" id="français" value="yes">
         <label class="form-check-label" for="français">Français</label><br />
+        <button class="mt-2 btn btn-primary" type="submit" id="submit">Submit</button>
     </form>
+
+    <p class="m-2" id="answer-form"></p>
     <script src="./main.js"></script>
 </body>
 

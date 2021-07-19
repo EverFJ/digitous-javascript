@@ -1,15 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vente en ligne</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <div class="container-fluid">
+        <form class="form-group m-2" action="">
+            <div class="col-3">
+                <label for="articles">Choisissez un article</label>
+                <select class="custom-select" name="articleSelect" id="articleSelect">
+                    <option selected>Article</option>
+                    <option value="veste">Veste</option>
+                    <option value="pantalon">Pantalon</option>
+                    <option value="chemise">Chemise</option>
+                    <option value="pull">Pull</option>
+                    <option value="manteau">Manteau</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="couleurs">Choisissez une couleur</label>
+                <select class="custom-select" name="colorSelect" id="colorSelect">
+                    <option selected>Couleur</option>
+                    <option value="noir">Noir</option>
+                    <option value="bleu">bleu</option>
+                    <option value="blanc">rouge</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="number">Nombre d'articles</label>
+                <select class="custom-select" name="numberSelect" id="numberSelect">
+                    <option selected>Nombre</option>
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="three">3</option>
+                    <option value="four">4</option>
+                    <option value="five">5</option>
+                    <option value="six">6</option>
+                    <option value="seven">7</option>
+                    <option value="eight">8</option>
+                    <option value="nine">9</option>
+                    <option value="ten">10</option>
+                </select>
+            </div>
+            <div class="col-3 my-3">
+                <button class="btn btn-primary" type="submit" id="submit">Valider achat</button>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-4">
+                <p id="articleP"></p>
+            </div>
+            <div class="col-4">
+                <p id="colorP"></p>
+            </div>
+            <div class="col-4">
+                <p id="numberP"></p>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
 
     <script src="./main.js"></script>
 </body>
