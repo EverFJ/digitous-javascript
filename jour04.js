@@ -67,9 +67,7 @@ function checkIfEven(num) {
         return num + " is Even"
     } else {
         return num + " is Odd"
-
     }
-
 }
 
 console.log(checkIfEven(8));
@@ -107,11 +105,29 @@ console.log(addUp(12) + "\n\n");
 
 // 06 Time NOT FINISHED !!!
 
+console.log("Time : ");
+
 function format(num) {
 
-    // let seconde = 0;
-    // let minute = 60 secondes;
-    // let heures = 60 minutes;
+    let heures = Math.floor(num / 3600);
+    let minutes = Math.floor(num % 3600 / 60);
+    let secondes = Math.floor(num % 3600 % 60);
+    return `${heures} : ${minutes} : ${secondes}`;
+}
+
+console.log(format(3700));
+console.log("\n\n");
+
+function secondsToHms(d) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+
+    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+    var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    return hDisplay + mDisplay + sDisplay;
 }
 
 
@@ -156,3 +172,6 @@ if (player1Score > player2Score) {
 } else {
     console.log(`It's a tie with ${player1Score}`)
 }
+
+
+// 
