@@ -11,28 +11,6 @@ const {
 
 const prompt = require("prompt");
 
-// 01 Calculator
-
-function calculate(nb, operand, nb2) {
-
-    switch (operand) {
-        case "+":
-            return nb + nb2;
-            break;
-        case "-":
-            return nb - nb2;
-            break;
-        case "*":
-            return nb * nb2;
-            break;
-        case "/":
-            return nb / nb2;
-            break;
-        case "%":
-            return nb % nb2;
-            break;
-    }
-};
 
 
 console.log(multiply(8));
