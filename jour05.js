@@ -1,11 +1,13 @@
 // Modules import 
 
 const {
-    addition
-} = require("./table-utils");
-const {
+    addition,
     multiply
 } = require("./table-utils");
+
+// const {
+    
+// } = require("./table-utils");
 
 const prompt = require("prompt");
 
@@ -40,24 +42,31 @@ console.log(addition(10));
 // 03 Prompt
 
 mysteryNum = Math.floor(Math.random() * (100 + 1) + 1);
-console.log(mysteryNum);
+// console.log(mysteryNum);
 
 function play() {
     prompt.start();
-    prompt.get("Quel est le nombre mystère ?", function(res) {
-        // if (typeof(nb) != "number") {
+    var question = "Quel est le nombre mystère ?"
+    prompt.get(question, function(err, nb) {
+        // if (err) {
+        //     return onerror(err)
+        // }
+
+        // if (nb > ) {
         //     console.log("error");
         //     return false
         // }
-        if (res == mysteryNum) {
+
+        if (nb[question] == mysteryNum) {
             console.log("Bravo !!!");
-        } else if (res > mysteryNum) {
+        } else if (nb[question] > mysteryNum) {
             console.log("C'est moins...");
             play();
-        } else if (res < mysteryNum) {
+        } else if (nb[question] < mysteryNum) {
             console.log("C'est plus...");
             play();
         }
+
     })
 }
 

@@ -151,6 +151,31 @@ function generatePassword(num) {
 console.log(generatePassword(10));
 console.log("\n\n")
 
+// Unnecessary complicated solution
+
+function generatePassword2(num) {
+    max = 122;
+    min = 48;
+    if (num < 6 || num > 15) {
+        console.log("Error")
+    }
+    let password = "";
+    for (let i = 0; i < num; i++) {
+        let randomIndex = Math.floor(Math.random() * (max - min + 1) + min);
+
+        while (randomIndex <= 64 && randomIndex >= 58) {
+            randomIndex = Math.floor(Math.random() * (max - min + 1) + min);
+        } // Exclude some symbols, but not all
+        let letter = String.fromCharCode(randomIndex);
+        password += letter;
+    }
+    return password
+}
+
+console.log("Password 2 :")
+console.log(generatePassword(14) + "\n\n");
+
+
 // Bonus 2 
 
 function launchDice(numberOfDice) {
