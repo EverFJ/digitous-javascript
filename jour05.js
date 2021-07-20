@@ -11,8 +11,6 @@ const {
 
 const prompt = require("prompt");
 
-
-
 console.log(multiply(8));
 
 console.log(addition(10));

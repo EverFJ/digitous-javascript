@@ -1,11 +1,11 @@
 // 01 Calculator
 
 const arguments = process.argv.splice(2);
-let firstArgument = parseInt(arguments[0]); 
-let secondArgument = arguments[1]; 
-let thirdArgument = parseInt(arguments[2]); 
+let firstArgument = parseInt(arguments[0]);
+let secondArgument = arguments[1];
+let thirdArgument = parseInt(arguments[2]);
 
-function calculate(nb ,operand, nb2) {
+function calculate(nb, operand, nb2) {
 
     switch (operand) {
         case "+":
@@ -23,7 +23,9 @@ function calculate(nb ,operand, nb2) {
         case "%":
             return nb % nb2;
             break;
-        }
+        default:
+            return "Error ! Invalid operand\nYou must use + - x / or %."
+    }
 };
 
 if (arguments.length != 3) {
