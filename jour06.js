@@ -37,15 +37,9 @@ getDate("2021-05-06");
 console.log("Age : ");
 
 function calculateAge(birthDateString) {
-    let birthDate = new Date(birthDateString);
-    let birthDateMS = birthDate.getMilliseconds();
-    let dateMS = Date.now();
-
-    let ageMS = dateMS - birthDate;
-
-    let age = Math.floor(ageMS / 1000 / 60 / 60 / 24 / 365);
-
-    console.log("Age " + age);
+    const birthdate = new Date(birthDateString).getFullYear();
+    const age = new Date().getFullYear() - birthdate;
+    console.log(age);
 }
 
 calculateAge("1986-02-02");
@@ -56,22 +50,35 @@ console.log("\n\n");
 console.log("Validator : ");
 
 const prompt = require("prompt");
+const colors = require("colors");
 
 function checkProfile() {
 
     var schema = {
         properties: {
             username: {
-                // message: "Can be only letters, numbers, or -",
+                description: "Enter your username",
+                message: "Username invalid ! Can be only letters, numbers, or -",
+                type: "string",
                 pattern: /[A-Za-z0-9]/,
                 required: true,
             },
             email: {
+                description: "Enter your email",
+                message: "Email invalid !",
+                type: "string",
+                // pattern: "^[a-zA-Z]+@$",
+                required: true,
 
             },
             password: {
-                // message: "At least 6 characters, 1 letter, and 1 number",
-                hidden: true
+                description: "Enter your password",
+                type: "string",
+                message: "Password invalid ! At least 6 characters, 1 letter, and 1 number",
+                pattern: /[a-zA-Z]+[0-9]+/,
+                hidden: true,
+                replace: "*",
+                required: true
             },
         }
     }
@@ -81,20 +88,20 @@ function checkProfile() {
             console.log("Error")
             return
         }
-
-        console.log(result.username)
-        if (!result.email.includes("@")) {
-            console.log("Email invalide")
-            return 1;
+        let object = {
+            "username": result.username,
+            "email": result.email,
+            "password": result.password,
         }
-        // if (result.password) {
+        console.log("Allg good!");
+        console.log(object);
 
-        // }
-        console.log(result.email)
-        console.log(result.password)
     })
 }
 
 prompt.start();
+
+prompt.message = colors.bgWhite.black("PROMPT");
+prompt.delimiter = colors.green("><");
 
 checkProfile();
