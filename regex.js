@@ -41,6 +41,8 @@ console.log(string2.substr(regex2))
 
 let newString = "My name is Francois"
 regex = /name is ([a-zA-Z]+)/
-const match = newString.exec(regex);
+const match = regex.exec(newString);
 
 console.log(match);
+
+console.log(`The name is ${match[1]}`);
