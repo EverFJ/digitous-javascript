@@ -4,3 +4,4 @@ Dupont Franck 15 1.75 95
 Léonne Annabelle 20 1.6 74
 Lamas Lorenzo 34 1.45 58
 Descours Hugo 26 1.7 75
+Hervé Janson 35 1.7 70

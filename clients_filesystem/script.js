@@ -1,39 +1,9 @@
 const fs = require("fs");
 
-var getFile = false;
 var fileText;
 var indiceCorp = [];
-var indiceCorp2 = [{
-        "name": "",
-        "fistname": "",
-        "icm": 0
-    },
-    {
-        "name": "",
-        "fistname": "",
-        "icm": 0
-    },
-    {
-        "name": "",
-        "fistname": "",
-        "icm": 0
-    },
-    {
-        "name": "",
-        "fistname": "",
-        "icm": 0
-    },
-    {
-        "name": "",
-        "fistname": "",
-        "icm": 0
-    },
-    {
-        "name": "",
-        "fistname": "",
-        "icm": 0
-    },
-]
+var indiceCorpJson;
+
 
 fs.readFile("clients.txt", function(err, data) {
     if (err) {
@@ -45,6 +15,10 @@ fs.readFile("clients.txt", function(err, data) {
     let lines = fileText.split("\n");
     console.log("lines : ");
     console.log(lines);
+    console.log(lines[lines.length - 1])
+    if (!lines[lines.length - 1]) {
+        lines.pop()
+    }
     let arrayName = [];
     let arrayFirstName = [];
     let arrayAge = [];
@@ -85,20 +59,22 @@ fs.readFile("clients.txt", function(err, data) {
 
     // Création tableau Nom Prénom ICM
     for (i = 0; i < arrayICM.length; i++) {
-        let person = [arrayName[i], arrayFirstName[i], arrayICM[i]];
+        let person = {
+            "name": arrayName[i],
+            "firstname": arrayFirstName[i],
+            "ICM": arrayICM[i]
+        };
         indiceCorp.push(person);
     };
-    console.log('indiceCorp : ');
-    console.log(indiceCorp);
-    getFile = true;
+    // console.log('indiceCorp : ');
+    // console.log(indiceCorp);
+    indiceCorpJson = JSON.stringify(indiceCorp);
+    // console.log("Indide corp JSON : ")
+    // console.log(indiceCorpJson);
+    fs.writeFile("./indiceCorp.json", indiceCorpJson, function(err) {
+        if (err) {
+            console.error(err);
+        }
+    });
 
 });
-
-
-
-
-// fs.writeFile("./indiceCorp.json", indiceCorp, function (err) {
-//     if (err) {
-//         console.error(err);
-//     }
-// });
