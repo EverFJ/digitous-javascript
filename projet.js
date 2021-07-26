@@ -1,5 +1,18 @@
 // Rover
 
+var arguments = process.argv.splice(2)[0];
+const prompt = require("prompt");
+
+// generate grid : 
+
+// var grid = [];
+// var x = 10;
+// let y = 10;
+
+// for (let i = 0; i < y; i++) {
+//     grid.push(" ");
+// }
+
 var grid = [
     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -10,8 +23,13 @@ var grid = [
     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-];
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+]
+
+// Rover initial position :
+grid[0][0] = "N";
+
+// console.log(grid);
 
 var rover = {
     "direction": "N",
@@ -66,38 +84,34 @@ function moveForward(rover) {
             if (rover.y == 0) {
                 console.log("Emergency stop !!! We're about to leave the grid !");
                 return
-            }
-            else {
+            } else {
                 rover.y += 1;
                 break;
             }
-        case "E":
-            if (rover.x == 10) {
-                console.log("Emergency stop !!! We're about to leave the grid !");
-                return
-            }
-            else {
-                rover.x += 1;
-                break;
-            }
-        case "S":
-            if (rover.y == -9) {
-                console.log("Emergency stop !!! We're about to leave the grid !");
-                return
-            }
-            else {
-                rover.y -= 1
-                break;
-            }
-        case "W":
-            if (rover.x == 0) {
-                console.log("Emergency stop !!! We're about to leave the grid !");
-                return
-            }
-            else {
-                rover.x -= 1
-                break;
-            }
+            case "E":
+                if (rover.x == 9) {
+                    console.log("Emergency stop !!! We're about to leave the grid !");
+                    return
+                } else {
+                    rover.x += 1;
+                    break;
+                }
+                case "S":
+                    if (rover.y == -9) {
+                        console.log("Emergency stop !!! We're about to leave the grid !");
+                        return
+                    } else {
+                        rover.y -= 1
+                        break;
+                    }
+                    case "W":
+                        if (rover.x == 0) {
+                            console.log("Emergency stop !!! We're about to leave the grid !");
+                            return
+                        } else {
+                            rover.x -= 1
+                            break;
+                        }
     }
     console.log("Moving forward");
 }
@@ -109,38 +123,34 @@ function moveBackward(rover) {
             if (rover.y == -9) {
                 console.log("Emergency stop !!! We're about to leave the grid !");
                 return
-            }
-            else {
+            } else {
                 rover.y -= 1;
                 break;
             }
-        case "E":
-            if (rover.x == 0) {
-                console.log("Emergency stop !!! We're about to leave the grid !");
-                return
-            }
-            else {
-                x -= 1;
-                break;
-            }
-        case "S":
-            if (rover.y == 0) {
-                console.log("Emergency stop !!! We're about to leave the grid !");
-                return
-            }
-            else {
-                y += 1;
-                break;
-            }
-        case "W":
-            if (rover.x == 10) {
-                console.log("Emergency stop !!! We're about to leave the grid !");
-                return
-            }
-            else {
-                x += 1;
-                break;
-            }
+            case "E":
+                if (rover.x == 0) {
+                    console.log("Emergency stop !!! We're about to leave the grid !");
+                    return
+                } else {
+                    x -= 1;
+                    break;
+                }
+                case "S":
+                    if (rover.y == 0) {
+                        console.log("Emergency stop !!! We're about to leave the grid !");
+                        return
+                    } else {
+                        y += 1;
+                        break;
+                    }
+                    case "W":
+                        if (rover.x == 9) {
+                            console.log("Emergency stop !!! We're about to leave the grid !");
+                            return
+                        } else {
+                            x += 1;
+                            break;
+                        }
     }
     console.log("Moving backward");
 }
@@ -148,8 +158,15 @@ function moveBackward(rover) {
 
 function pilotRover(commands) {
     console.log("Initiating movement...");
+    let roverPosition = {
+        "x": rover.x,
+        "y": rover.y
+    }
     for (i = 0; i < commands.length; i++) {
-        let actualCoordinates = { "x": rover.x, "y": rover.y };
+        let actualCoordinates = {
+            "x": rover.x,
+            "y": rover.y
+        };
         rover.travelLog.push(actualCoordinates);
         switch (commands[i]) {
             case "f":
@@ -171,16 +188,56 @@ function pilotRover(commands) {
         }
     }
     console.log(`New Position --> x = ${rover.x}, y = ${rover.y}`)
+    console.log("Direction : " + rover.direction)
+
+    // Erase previous position :
+    grid[roverPosition.x][Math.abs(roverPosition.y)] = " ";
+
+    // Place rover on the grid :
+    grid[rover.x][Math.abs(rover.y)] = rover.direction;
+    console.log(grid)
 }
 
-pilotRover("bbyyfr");
+// Pilot rover with arguments :
 
-console.log(rover.travelLog);
+function pilotRoverWithArguments() {
+    if (!arguments) {
+        console.log("You need to use commands, like f (forward), l (left), r (right), or b (backward) as arguments")
+        console.log("EXAMPLE : node projects.js ffrlb");
+    } else {
+        pilotRover(arguments);
+        console.log(rover.travelLog);
+    }
+}
+// pilotRoverWithArguments();
 
-// TODO
 
-// Afficher la grille (updated) après chaque exécution de pilotRover
-// ["N", " ", " ", " "]
-// ["", "E", " ", " "]
+// Pilot rover with prompt :
+var schema = {
+    properties: {
+        commandes: {
+            description: "Enter commands, as f (forward), l (left), r (right), or b (backward), or stop if you wanna exit"
+        }
+    }
+}
 
+prompt.start();
 
+function pilotWithPrompt() {
+    prompt.get(schema, function(err, res) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        // console.log(res.commandes);
+        if (res.commandes == "stop") {
+            console.log("Exiting program...")
+            return 0;
+        }
+        pilotRover(res.commandes);
+        console.log("Travel log : ")
+        console.log(rover.travelLog);
+        pilotWithPrompt();
+    })
+}
+pilotWithPrompt();

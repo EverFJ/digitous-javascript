@@ -71,6 +71,7 @@ fs.readFile("clients.txt", function(err, data) {
     indiceCorpJson = JSON.stringify(indiceCorp);
     // console.log("Indide corp JSON : ")
     // console.log(indiceCorpJson);
+
     fs.writeFile("./indiceCorp.json", indiceCorpJson, function(err) {
         if (err) {
             console.error(err);
