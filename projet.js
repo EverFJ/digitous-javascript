@@ -1,6 +1,7 @@
 // Rover
 
-var arguments = process.argv.splice(2)[0];
+var args = process.argv.splice(2)[0];
+console.log(args)
 const prompt = require("prompt");
 
 // generate grid : 
@@ -195,11 +196,13 @@ function pilotRover(commands) {
 // Pilot rover with arguments :
 
 function pilotRoverWithArguments() {
-    if (!arguments) {
+    // console.log(args)
+    if (!args) {
         console.log("You need to use commands, like f (forward), l (left), r (right), or b (backward) as arguments")
         console.log("EXAMPLE : node projects.js ffrlb");
     } else {
-        pilotRover(arguments);
+        pilotRover(args);
+        console.log("Travel log : ")
         console.log(rover.travelLog);
     }
 }
@@ -233,9 +236,9 @@ function pilotWithPrompt() {
     })
 }
 
-console.log(grid);
+// console.log(grid);
 
 
 // pilotRover("bbrlbbrbb");
 // pilotWithPrompt();
-// pilotRoverWithArguments();
+pilotRoverWithArguments();
