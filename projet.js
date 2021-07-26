@@ -5,26 +5,20 @@ const prompt = require("prompt");
 
 // generate grid : 
 
-// var grid = [];
-// var x = 10;
-// let y = 10;
+var grid = [];
+var x = 10;
+var y = 10;
 
-// for (let i = 0; i < y; i++) {
-//     grid.push(" ");
-// }
 
-var grid = [
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
-]
+for (let i = 0; i < y; i++) {
+    let lines = [];
+    grid.push(lines)
+
+    for (let i = 0; i < x; i++) {
+        lines.push(" ");
+    }
+};
+
 
 // Rover initial position :
 grid[0][0] = "N";
@@ -209,8 +203,6 @@ function pilotRoverWithArguments() {
         console.log(rover.travelLog);
     }
 }
-// pilotRoverWithArguments();
-
 
 // Pilot rover with prompt :
 var schema = {
@@ -240,4 +232,10 @@ function pilotWithPrompt() {
         pilotWithPrompt();
     })
 }
-pilotWithPrompt();
+
+console.log(grid);
+
+
+// pilotRover("bbrlbbrbb");
+// pilotWithPrompt();
+// pilotRoverWithArguments();
