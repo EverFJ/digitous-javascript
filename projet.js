@@ -211,7 +211,9 @@ function pilotRoverWithArguments() {
 var schema = {
     properties: {
         commandes: {
-            description: "Enter commands, as f (forward), l (left), r (right), or b (backward), or stop if you wanna exit"
+            description: "Enter commands to pilot the rover",
+            message: "f (forward), l (left), r (right), or b (backward), or stop if you wanna exit",
+            pattern: /[flrb]|stop/,
         }
     }
 }
@@ -240,5 +242,5 @@ function pilotWithPrompt() {
 
 
 // pilotRover("bbrlbbrbb");
-// pilotWithPrompt();
-pilotRoverWithArguments();
+pilotWithPrompt();
+// pilotRoverWithArguments();
