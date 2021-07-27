@@ -246,7 +246,7 @@ var schema = {
         commandes: {
             description: "Enter commands to pilot the rover (or `stop` to exit)",
             message: "f (forward), l (left), r (right), or b (backward), or stop if you wanna exit",
-            pattern: /[flrb]|stop/,
+            pattern: /[flrb]|^stop$/,
         }
     }
 }
@@ -271,12 +271,15 @@ function pilotWithPrompt() {
     })
 }
 
+
 // console.log(grid);
 
 
 // pilotRover("f");
 pilotWithPrompt();
 // pilotRoverWithArguments();
+
+
 
 
 // Avoiding obstacles ideas : 
