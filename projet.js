@@ -2,14 +2,32 @@
 
 var args = process.argv.splice(2)[0];
 console.log(args)
+const {
+    colors
+} = require("prompt");
 const prompt = require("prompt");
 
-// generate grid : 
 
+// Test : 
+// var grid = [
+//     [" ", "O", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", "N", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+//     [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+// ]
+
+
+
+// Generate grid : 
 var grid = [];
 var x = 10;
 var y = 10;
-
 
 for (let i = 0; i < y; i++) {
     let lines = [];
@@ -20,11 +38,26 @@ for (let i = 0; i < y; i++) {
     }
 };
 
+// Generate obstacles :
+var obstaclesNumber = 12;
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+for (i = 0; i < obstaclesNumber; i++) {
+    let xPosition = getRandomNumber(0, 9);
+    let yPosition = getRandomNumber(0, 9);
+    if (xPosition == 0 && yPosition == 0) {
+        continue
+    }
+    // Create obstaccle : 
+    grid[yPosition][xPosition] = "O";
+};
+
 
 // Rover initial position :
 grid[0][0] = "N";
-
-// console.log(grid);
 
 var rover = {
     "direction": "N",
@@ -211,7 +244,7 @@ function pilotRoverWithArguments() {
 var schema = {
     properties: {
         commandes: {
-            description: "Enter commands to pilot the rover",
+            description: "Enter commands to pilot the rover (or `stop` to exit)",
             message: "f (forward), l (left), r (right), or b (backward), or stop if you wanna exit",
             pattern: /[flrb]|stop/,
         }
@@ -241,6 +274,16 @@ function pilotWithPrompt() {
 // console.log(grid);
 
 
-// pilotRover("bbrlbbrbb");
+// pilotRover("f");
 pilotWithPrompt();
 // pilotRoverWithArguments();
+
+
+// Avoiding obstacles ideas : 
+
+// // else if (grid[rover.y][rover.x - 1] === "O") {
+// //     console.log("Obstacle ahead ! Avoiding procedure");
+// //     rover.direction = "S";
+//     moveForward(rover);
+//     break;
+// } 
