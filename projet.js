@@ -223,7 +223,7 @@ function pilotRover(commands) {
 
     // Place rover on the grid :
     grid[rover.x][Math.abs(rover.y)] = rover.direction;
-    console.log(grid)
+    console.log(grid);
 }
 
 // Pilot rover with arguments :
@@ -272,17 +272,15 @@ function pilotWithPrompt() {
 }
 
 
-// console.log(grid);
+// Use these functions to pilot the rover as you like :
 
-
-// pilotRover("f");
+// pilotRover("rrffyb");
 pilotWithPrompt();
 // pilotRoverWithArguments();
 
 
 
-
-// Avoiding obstacles ideas : 
+// TODO --> Avoiding obstacles ideas : 
 
 // // else if (grid[rover.y][rover.x - 1] === "O") {
 // //     console.log("Obstacle ahead ! Avoiding procedure");
