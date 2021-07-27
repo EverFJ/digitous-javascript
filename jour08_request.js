@@ -1,6 +1,7 @@
 // 01 Countries
 
-var request = require("request");
+const request = require("request");
+const fetch = require("node-fetch")
 
 var countriesName = [];
 
