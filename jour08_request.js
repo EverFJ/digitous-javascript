@@ -14,15 +14,18 @@ function getCountries() {
         let countriesObject = JSON.parse(body)
         // console.log(countriesObject["0"].name)
 
-        for (i = 0; i < countriesObject.length; i++) {
-            let index = i.toString()
-            countriesName.push(countriesObject[i].name)
-        }
-        console.log("var countriesName : ")
-        console.log(countriesName)
+        // for (i = 0; i < countriesObject.length; i++) {
+        //     let index = i.toString()
+        //     countriesName.push(countriesObject[i].name)
+        // }
+
+        countriesName = countriesObject.map((element) => element.name)
+
+        console.log("var countriesName : ");
+        console.log(countriesName.join("-"));
     });
 }
-// getCountries()
+getCountries()
 
 
 // 02 Chuck Norris

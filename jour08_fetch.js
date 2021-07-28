@@ -15,11 +15,13 @@ const getCountries = function() {
                 countriesName.push(countriesObject[i].name);
             }
 
+            countriesName = countriesObject.map((element) => element.name)
+
             console.log("CountriesName Array : ");
-            console.log(countriesName);
+            console.log(countriesName.join("-"));
         });
 }
-// getCountries();
+getCountries();
 
 
 // 02  Chuck Norris
@@ -52,4 +54,4 @@ const catchPokemon = function(nb) {
             console.log(`Pokemon name : ${json.name}`)
         })
 }
-catchPokemon(445);
+// catchPokemon(445);
