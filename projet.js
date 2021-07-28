@@ -56,10 +56,10 @@ for (i = 0; i < obstaclesNumber; i++) {
 grid[0][0] = "N";
 
 var rover = {
-    "direction": "N",
-    "x": 0,
-    "y": 0,
-    "travelLog": [],
+    direction: "N",
+    x: 0,
+    y: 0,
+    travelLog: [],
 };
 
 function turnRight(rover) {
@@ -183,13 +183,13 @@ function moveBackward(rover) {
 function pilotRover(commands) {
     console.log("Initiating movement...");
     let roverPosition = {
-        "x": rover.x,
-        "y": rover.y
+        x: rover.x,
+        y: rover.y
     }
     for (i = 0; i < commands.length; i++) {
         let actualCoordinates = {
-            "x": rover.x,
-            "y": rover.y
+            x: rover.x,
+            y: rover.y
         };
         rover.travelLog.push(actualCoordinates);
         switch (commands[i]) {
@@ -212,14 +212,14 @@ function pilotRover(commands) {
         }
     }
     console.log(`New Position --> x = ${rover.x}, y = ${rover.y}`)
-    console.log("Direction : " + rover.direction)
+    // console.log("Direction : " + rover.direction)
 
     // Erase previous position :
     grid[roverPosition.x][Math.abs(roverPosition.y)] = " ";
 
     // Place rover on the grid :
     grid[rover.x][Math.abs(rover.y)] = rover.direction;
-    console.log(grid);
+    console.log(grid.join("\n"));
 }
 
 // Pilot rover with arguments :
@@ -270,7 +270,7 @@ function pilotWithPrompt() {
 
 // Use these functions to pilot the rover as you like :
 
-// pilotRover("rrffyb");
+// pilotRover("rrff");
 pilotWithPrompt();
 // pilotRoverWithArguments();
 
