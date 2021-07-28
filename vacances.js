@@ -48,7 +48,7 @@ function swap(string) {
     let newString = "";
     for (i = 0; i < string.length; i++) {
         if (string[i].match(/[A-Z]/)) {
-            newString += string[i].toLowercase();
+            newString += string[i].toLowercase;
             console.log("MAJ")
         } else {
             console.log("min")

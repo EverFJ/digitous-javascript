@@ -57,3 +57,57 @@ const catchPokemon = function(nb) {
 // catchPokemon(445);
 
 // Bonus BlackJack
+
+const prompt = require("prompt");
+
+let playerScore = 0;
+let bankScore = Math.floor(Math.random() * (21 - 16 + 1) + 16);
+
+prompt.start();
+
+let schema = {
+    properties: {
+        action: {
+            description: "BLACKJACK GAME\nYou can `draw` a card, or `pass`",
+            message: "Invalid input",
+            pattern: /^draw$|^pass$/,
+            type: "string",
+        }
+    }
+}
+
+function promptForAction() {
+    prompt.get(schema, function(err, result) {
+        if (result.action === "draw") {
+            let card = Math.floor(Math.random() * 10 + 1);
+            playerScore += card;
+            console.log("Your score : " + playerScore);
+            if (playerScore > 21) {
+                console.log("You lost, your score is more than 21 !!!")
+                return;
+            } else {
+                promptForAction();
+            }
+        } else if (result.action === "pass") {
+            if (playerScore === 21) {
+                console.log("BlackJack !!! Player win");
+                console.log(`Player score : ${playerScore}`);
+                console.log(`Bank score : ${bankScore}`);
+            } else if (playerScore > bankScore) {
+                console.log("Player wins");
+                console.log(`Player score : ${playerScore}`);
+                console.log(`Bank score : ${bankScore}`);
+            } else if (playerScore < bankScore) {
+                console.log("Bank wins");
+                console.log(`Player score : ${playerScore}`);
+                console.log(`Bank score : ${bankScore}`);
+            } else {
+                console.log("Draw !!!");
+                console.log(`Player score : ${playerScore}`);
+                console.log(`Bank score : ${bankScore}`);
+            }
+        }
+    })
+}
+
+promptForAction();
