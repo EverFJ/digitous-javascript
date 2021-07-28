@@ -10,8 +10,6 @@ var universites = [{
     }],
     inscrireEtudiant(etudiant) {
         if (etudiant.name && etudiant.number >= 1 && etudiant.number <= 100) {
-            console.log('TEEEEEEEEEEEsT');
-
             this.étudiants.push(etudiant);
         }
     },

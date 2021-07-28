@@ -8,10 +8,10 @@ function getCountries() {
     request.get("https://restcountries.eu/rest/v1/all", function(err, res, body) {
         // console.log(err);
         // console.log(res.statusCode);
-        // console.log(body);
-        // console.log(body.length)
+        // console.log(res.body);
+        // console.log(res.body.length)
 
-        let countriesObject = JSON.parse(body);
+        let countriesObject = JSON.parse(res.body);
         // console.log(countriesObject["0"].name)
 
         // for (i = 0; i < countriesObject.length; i++) {
@@ -36,12 +36,12 @@ function getJoke() {
     request.get("https://api.chucknorris.io/jokes/random", function(err, res, body) {
         // console.log(body);
 
-        // let chuckObject = JSON.parse(body);
+        // let chuckObject = JSON.parse(res.body);
         // // console.log(chuckObject);
         // chuckJoke = chuckObject.value;
         // console.log(chuckJoke);
 
-        console.log(JSON.parse(body).value);
+        console.log(JSON.parse(res.body).value);
     })
 }
 // getJoke();
@@ -51,7 +51,7 @@ function getJoke() {
 function catchPokemon(nb) {
     request.get("https://pokeapi.co/api/v2/pokemon/" + nb, function(err, res, body) {
 
-        let pokemonObject = JSON.parse(body)
+        let pokemonObject = JSON.parse(res.body);
         // console.log(pokemonObject.forms[0].name);
         let pokemonName = pokemonObject.name;
         console.log(`ID of the Pokemon : ${nb}`)
@@ -64,15 +64,15 @@ function catchPokemon(nb) {
 const prompt = require("prompt");
 
 let playerScore = 0;
-let bankScore = Math.floor(Math.random() * (21 - 16 + 1) + 16);
+const bankScore = Math.floor(Math.random() * (21 - 16 + 1) + 16);
 
 prompt.start();
 
-let schema = {
+const schema = {
     properties: {
         action: {
             description: "BLACKJACK GAME\nYou can `draw` a card, or `pass`",
-            message: "Invalid input",
+            message: "Invalid input. Try again",
             pattern: /^draw$|^pass$/,
             type: "string",
         }
@@ -82,7 +82,7 @@ let schema = {
 function promptForAction() {
     prompt.get(schema, function(err, result) {
         if (result.action === "draw") {
-            let card = Math.floor(Math.random() * 10 + 1);
+            const card = Math.floor(Math.random() * 10 + 1);
             playerScore += card;
             console.log("Your score : " + playerScore);
             if (playerScore > 21) {
