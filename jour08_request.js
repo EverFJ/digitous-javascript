@@ -53,11 +53,11 @@ function catchPokemon(nb) {
 
         let pokemonObject = JSON.parse(body)
         // console.log(pokemonObject.forms[0].name);
-        let pokemonName = pokemonObject.forms[0].name;
+        let pokemonName = pokemonObject.name;
         console.log(`ID of the Pokemon : ${nb}`)
         console.log(`name of the Pokemon : ${pokemonName}`)
     })
 };
-catchPokemon(898);
+catchPokemon(25);
 
 // Bonus BlackJack
