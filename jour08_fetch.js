@@ -52,4 +52,4 @@ const catchPokemon = function(nb) {
             console.log(`Pokemon name : ${json.name}`)
         })
 }
-catchPokemon(555);
+catchPokemon(445);

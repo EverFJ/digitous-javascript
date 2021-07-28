@@ -280,7 +280,7 @@ pilotWithPrompt();
 
 
 
-// TODO --> Avoiding obstacles ideas : 
+// TODO --> Avoiding obstacles ideas (wasn't working yet): 
 
 // // else if (grid[rover.y][rover.x - 1] === "O") {
 // //     console.log("Obstacle ahead ! Avoiding procedure");
