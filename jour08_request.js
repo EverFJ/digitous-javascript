@@ -1,7 +1,6 @@
 // 01 Countries
 
 const request = require("request");
-const fetch = require("node-fetch")
 
 var countriesName = [];
 
@@ -41,7 +40,7 @@ function getJoke() {
 
     })
 }
-getJoke()
+// getJoke()
 
 // 03 Pokemon
 
