@@ -48,7 +48,6 @@ function getJoke() {
 
 // 03 Pokemon
 
-
 function catchPokemon(nb) {
     request.get("https://pokeapi.co/api/v2/pokemon/" + nb, function(err, res, body) {
 
@@ -59,6 +58,6 @@ function catchPokemon(nb) {
         console.log(`name of the Pokemon : ${pokemonName}`)
     })
 };
-catchPokemon(42);
+catchPokemon(898);
 
 // Bonus BlackJack
