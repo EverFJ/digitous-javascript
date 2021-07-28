@@ -41,11 +41,10 @@ function getJoke() {
         // chuckJoke = chuckObject.value;
         // console.log(chuckJoke);
 
-        console.log(JSON.parse(body).vale);
-
+        console.log(JSON.parse(body).value);
     })
 }
-getJoke();
+// getJoke();
 
 // 03 Pokemon
 

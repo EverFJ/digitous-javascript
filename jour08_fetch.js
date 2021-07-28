@@ -9,11 +9,11 @@ const getCountries = function() {
         .then(res => res.json())
         .then(json => {
             countriesObject = json;
-            console.log(countriesObject);
+            // console.log(countriesObject);
 
-            for (i = 0; i < countriesObject.length; i++) {
-                countriesName.push(countriesObject[i].name);
-            }
+            // for (i = 0; i < countriesObject.length; i++) {
+            //     countriesName.push(countriesObject[i].name);
+            // }
 
             countriesName = countriesObject.map((element) => element.name)
 
@@ -55,3 +55,5 @@ const catchPokemon = function(nb) {
         })
 }
 // catchPokemon(445);
+
+// Bonus BlackJack
