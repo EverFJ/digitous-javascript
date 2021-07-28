@@ -11,7 +11,7 @@ function getCountries() {
         // console.log(body);
         // console.log(body.length)
 
-        let countriesObject = JSON.parse(body)
+        let countriesObject = JSON.parse(body);
         // console.log(countriesObject["0"].name)
 
         // for (i = 0; i < countriesObject.length; i++) {
@@ -19,13 +19,13 @@ function getCountries() {
         //     countriesName.push(countriesObject[i].name)
         // }
 
-        countriesName = countriesObject.map((element) => element.name)
+        countriesName = countriesObject.map((element) => element.name);
 
         console.log("var countriesName : ");
         console.log(countriesName.join("-"));
     });
 }
-getCountries()
+// getCountries()
 
 
 // 02 Chuck Norris
@@ -36,14 +36,16 @@ function getJoke() {
     request.get("https://api.chucknorris.io/jokes/random", function(err, res, body) {
         // console.log(body);
 
-        let chuckObject = JSON.parse(body);
-        // console.log(chuckObject);
-        chuckJoke = chuckObject.value;
-        console.log(chuckJoke);
+        // let chuckObject = JSON.parse(body);
+        // // console.log(chuckObject);
+        // chuckJoke = chuckObject.value;
+        // console.log(chuckJoke);
+
+        console.log(JSON.parse(body).vale);
 
     })
 }
-// getJoke()
+getJoke();
 
 // 03 Pokemon
 
