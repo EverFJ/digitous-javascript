@@ -65,7 +65,6 @@ const prompt = require("prompt");
 
 let playerScore = 0;
 const bankScore = Math.floor(Math.random() * (21 - 16 + 1) + 16);
-console.log(bankScore)
 
 prompt.start();
 

@@ -48,22 +48,57 @@ function swap(string) {
     let newString = "";
     for (i = 0; i < string.length; i++) {
         if (string[i].match(/[A-Z]/)) {
-            newString += string[i].toLowercase;
-            console.log("MAJ")
+            newString += string.charAt(i).toLowerCase();
         } else {
-            console.log("min")
-            newString += string[i].toUpperCase();
+            newString += string.charAt(i).toUpperCase();
         }
     }
-    return newString
+    return newString;
 }
-console.log(swap("Hello World"));
+// console.log(swap("Hello World"));
 
 
 // Bonus
+
+const makeItSpongeBob = (string) => {
+    const stringLower = string.toLowerCase();
+    let newString = "";
+    for (i = 0; i < stringLower.length; i++) {
+        if (i % 2 === 0) {
+            newString += stringLower.charAt(i).toUpperCase();
+        } else {
+            newString += stringLower.charAt(i).toLowerCase();
+        }
+    }
+    return newString;
+};
+
+// console.log(makeItSpongeBob('JavaSCRIpt is easy'));
 
 // Bonus II
 
 // Bonus III
 
 // Bonus IV
+
+// Forêt 
+
+/* Une forêt de 20 hectares perd chaque année 10% de sa surface et gagne dans le même temps 3 hectares.
+ Ecrire une fonction(année) pour calculer la surface.
+ Générer un tableau de surface en fonction de l'année (index).
+*/
+
+const forestSurface = (years) => {
+    let surface = 20;
+    let surfaceArray = [20];
+    for (i = 0; i <= years; i++) {
+        surface = surface * 0.9 + 3;
+        surfaceArray.push(surface);
+    }
+    console.log("Surface : ");
+    console.log(surface);
+    console.log("Surface Array: ");
+    console.log(surfaceArray);
+};
+
+// forestSurface(50);
