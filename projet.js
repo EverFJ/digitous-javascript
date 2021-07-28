@@ -1,12 +1,8 @@
 // Rover
 
 var args = process.argv.splice(2)[0];
-console.log(args)
-const {
-    colors
-} = require("prompt");
+// console.log(args);
 const prompt = require("prompt");
-
 
 // Test : 
 // var grid = [
