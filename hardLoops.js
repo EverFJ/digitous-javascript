@@ -3,7 +3,7 @@
 console.log("Sum");
 let numbers = [];
 
-for (i = 0; i < 50; i++) {
+for (let i = 0; i < 50; i++) {
     numbers.push(Math.floor(Math.random() * 100))
 }
 
@@ -12,7 +12,7 @@ console.log(numbers);
 
 let sum = 0;
 
-for (i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i]
 }
 
@@ -28,13 +28,13 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }
 
-for (i = 0; i < 50; i++) {
+for (let i = 0; i < 50; i++) {
     numbers.push(getRandomNumber(50, 201));
 }
 console.log(numbers);
 let largestNumber = Number.NEGATIVE_INFINITY;
 
-for (i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] > largestNumber) {
         largestNumber = numbers[i];
     }
@@ -46,12 +46,12 @@ console.log(`C'est ${largestNumber} le plus grand nombre du tableau \n`);
 
 numbers = [];
 
-for (i = 0; i < 50; i++) {
+for (let i = 0; i < 50; i++) {
     numbers.push(getRandomNumber(50, 201));
 }
 console.log(numbers);
 const findNumber = function() {
-    for (i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length; i++) {
         while (numbers[i] >= 75 && numbers[i] <= 100) {
             // console.log("Le nombre est " + numbers[i]);
             console.log(`Le  nombre est ${numbers[i]}`)
@@ -65,15 +65,23 @@ console.log("\n");
 
 // NESTED LOOP NOT FINISHED !!!
 
-console.log("Nested loop : ");
+console.log("Nested loop : \n");
 
-let words = ["hello", "goodbye", "yes", "no", "stop", "go go go"];
-let letters = "";
+const words = ["hello", "goodbye", "yes", "no", "stop", "go go go"];
 let lettersArray = [];
+let oCount = 0;
 
-for (i = 0; i < words.length; i++) {
-    letters += words[i].split("");
-
+for (let i = 0; i < words.length; i++) {
+    for (let j = 0; j < words[i].length; j++) {
+        lettersArray.push(words[i][j]);
+    }
 }
-lettersArray.push(letters);
-console.log(lettersArray);
+
+for (i = 0; i < lettersArray.length; i++) {
+    if (lettersArray[i] === "o") {
+        oCount += 1
+    }
+}
+
+console.log("lettersArray", lettersArray);
+console.log("oCount", oCount)
