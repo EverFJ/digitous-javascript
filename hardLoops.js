@@ -63,7 +63,7 @@ const findNumber = function() {
 findNumber();
 console.log("\n");
 
-// NESTED LOOP NOT FINISHED !!!
+// Nested loop
 
 console.log("Nested loop : \n");
 
