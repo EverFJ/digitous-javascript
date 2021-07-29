@@ -1,5 +1,6 @@
 var btn = document.getElementById("submit");
 var adminBlock = document.getElementById("admin-block");
+var commentBtn = document.querySelector("#comment-btn");
 
 // console.log(btn);
 // console.log(adminBlock);
@@ -16,3 +17,8 @@ btn.onclick = function() {
         adminBlock.style.display = "none"
     }
 };
+
+commentBtn.addEventListener("click", () => {
+    let comment = document.querySelector("#comment-input").value;
+    document.querySelector("#comment-p").textContent = comment;
+})

@@ -73,7 +73,7 @@ const makeItSpongeBob = (string) => {
     return newString;
 };
 
-// console.log(makeItSpongeBob('JavaSCRIpt is easy'));
+// console.log(makeItSpongeBob("JavaSCRIpt is easy"));
 
 // Bonus II
 
