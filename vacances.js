@@ -32,7 +32,6 @@ const checkPal = function(string) {
     for (i = string.length - 1; i >= 0; i--) {
         inversedString += string[i];
     }
-    // console.log(inversedString);
     if (string === inversedString)
         return "Palindrome !";
     else

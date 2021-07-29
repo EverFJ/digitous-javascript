@@ -64,10 +64,11 @@ console.log("Nested loop : ");
 
 let words = ["hello", "goodbye", "yes", "no", "stop", "go go go"];
 console.log(words[0].split(""));
-let letters = [];
+let letters = "";
 
 for (i = 0; i < words.length; i++) {
-    letters += words[i].split("");
+
+    letters += words[i].split(",");
 }
 
 console.log(letters);
