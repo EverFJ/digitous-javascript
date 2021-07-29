@@ -42,7 +42,7 @@ for (i = 0; i < numbers.length; i++) {
 console.log(`C'est ${largestNumber} le plus grand nombre du tableau \n`);
 
 
-// Unique NOT FINISHED !!!
+// Unique
 
 numbers = [];
 
@@ -50,12 +50,17 @@ for (i = 0; i < 50; i++) {
     numbers.push(getRandomNumber(50, 201));
 }
 console.log(numbers);
-for (i = 0; i < numbers.length; i++) {
-    while (numbers[i] >= 75 && numbers[i] <= 100) {
-        console.log("Le nombre est " + numbers[i]);
-        break;
+const findNumber = function() {
+    for (i = 0; i < numbers.length; i++) {
+        while (numbers[i] >= 75 && numbers[i] <= 100) {
+            // console.log("Le nombre est " + numbers[i]);
+            console.log(`Le  nombre est ${numbers[i]}`)
+            return
+        }
     }
 }
+
+findNumber();
 console.log("\n");
 
 // NESTED LOOP NOT FINISHED !!!
@@ -63,12 +68,12 @@ console.log("\n");
 console.log("Nested loop : ");
 
 let words = ["hello", "goodbye", "yes", "no", "stop", "go go go"];
-console.log(words[0].split(""));
-let letters = [];
+let letters = "";
+let lettersArray = [];
 
 for (i = 0; i < words.length; i++) {
+    letters += words[i].split("");
 
-    letters.push(words[i].split(","));
 }
-
-console.log(letters);
+lettersArray.push(letters);
+console.log(lettersArray);
